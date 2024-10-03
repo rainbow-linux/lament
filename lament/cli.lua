@@ -1,19 +1,10 @@
 local argparse = require("argparse")
 
-local parser = argparse("lament", "The gayest configuration tool")
+local parser = argparse("lament", "Simple bidirectional configuration application tool")
 
-local set_cmd = parser:command("set", "Set a value for a module setting")
-set_cmd:argument("module", "The module name")
-set_cmd:argument("setting", "The setting name")
-set_cmd:argument("value", "The value to set")
-
-local advanced_cmd = parser:command("advanced", "Advanced setting operations")
-advanced_cmd:argument("module", "The module name")
-advanced_cmd:argument("setting", "The setting name")
-advanced_cmd:argument("action", "The action to perform (append, remove, set)")
-advanced_cmd:argument("value", "The value to append or set")
-
-parser:command("apply", "Apply all changes")
+parser:argument("module", "The module name")
+parser:argument("setting", "The setting name")
+parser:argument("value", "The value to set")
 
 local args = parser:parse()
 
